@@ -3,11 +3,13 @@ from pydantic import BaseModel, model_validator
 
 class PayloadCreate(BaseModel):
     """Request body for POST /payload: two equal-length lists of strings.
+
     The interleaving only makes sense when both lists line up one-to-one, so a
     length mismatch is rejected here as a contract violation — FastAPI turns a
     failed validator into a 422 automatically, keeping this check out of the
     service layer.
     """
+
     list_1: list[str]
     list_2: list[str]
 

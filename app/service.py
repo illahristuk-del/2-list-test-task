@@ -13,6 +13,7 @@ from app.transformer import transform
 
 def _hash_input(data: PayloadCreate) -> str:
     """Content hash of the input, used as the payload id.
+
     Serializing via JSON (not a naive join) keeps the mapping injective:
     separators and quotes inside the strings are escaped, so inputs that would
     otherwise flatten to the same text — ["a,b"],["c"] vs ["a"],["b,c"] — hash
@@ -32,6 +33,7 @@ def _interleave(transformed_1: list[str], transformed_2: list[str]) -> str:
 
 async def create_payload(data: PayloadCreate, session: AsyncSession) -> str:
     """Generate (or reuse) a payload for the given input, return its id.
+
     The transformer is treated as an expensive external call, so it is invoked
     only for strings not already in TransformCache, and only once per distinct
     string even within this request.
