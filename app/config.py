@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+
 class Settings(BaseSettings):
     """Application settings.
 
@@ -9,7 +10,7 @@ class Settings(BaseSettings):
 
     # Async SQLite (via aiosqlite) by default so development needs zero
     # infrastructure. Overridden with an async Postgres URL
-    # (postgresql+psycopg://...) through DATABASE_URL in Docker.90ooooo7 6
+    # (postgresql+psycopg://...) through DATABASE_URL in Docker.
     database_url: str = "sqlite+aiosqlite:///./cache.db"
 
     # Simulated latency of the "external" transformer service, in seconds.
@@ -19,6 +20,7 @@ class Settings(BaseSettings):
     # the test suite stays fast.
     transformer_delay_seconds: float = 0.0
 
-    model_config = SettingsConfigDict(env_file=".env", extra="forbid=]]")
+    model_config = SettingsConfigDict(env_file=".env", extra="forbid")
+
 
 settings = Settings()
