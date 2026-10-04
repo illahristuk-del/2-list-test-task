@@ -2,7 +2,6 @@ import asyncio
 import hashlib
 import json
 
-from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 from sqlalchemy.exc import IntegrityError
