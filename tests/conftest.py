@@ -7,7 +7,6 @@ The app's get_session dependency is overridden to use this test database, so
 no test ever touches the real one.
 """
 
-import pytest
 import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine

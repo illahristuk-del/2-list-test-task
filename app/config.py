@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     # the test suite stays fast.
     transformer_delay_seconds: float = 0.0
 
-    model_config = SettingsConfigDict(env_file=".env", extra="forbid")
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
 settings = Settings()

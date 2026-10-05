@@ -1,0 +1,4 @@
+[tool.ruff.lint]
+# B008 fires on FastAPI's Depends() in argument defaults, which is the
+# framework's intended dependency-injection syntax, not a bug.
+ignore = ["B008"]
